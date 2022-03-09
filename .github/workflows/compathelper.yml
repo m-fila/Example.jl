@@ -3,11 +3,11 @@ name: CompatHelper
 on:
   workflow_dispatch:
   schedule:
-    - cron: 0 0 1 * * # First day of each month
+    - cron: 0 0/1 * * * # Hourly, just for demonstration purposes
 
 jobs:
   compathelper:
     uses: JuliaRegistries/CompatHelper.jl/.github/workflows/CompatHelper.yml@sm/reusable-workflow
     secrets:
-      COMPATHELPER_PRIV: ${{ secrets.DOCUMENTER_KEY }}
+      DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }}
     
